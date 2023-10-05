@@ -5,13 +5,13 @@ on:
     branches:
       - "*"
 jobs:
-Auto-build:
-  runs-on: ubuntu-latest
-  steps:
-    - uses: actions/checkout@master
-    - name: Merge staging -> ${{ github.ref_name }}
-      uses: devmasx/merge-branch@master
-      with:
-        type: now
-        target_branch: ${{ github.ref_name }}
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+  Auto-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Merge staging -> ${{ github.ref_name }}
+        uses: devmasx/merge-branch@master
+        with:
+          type: now
+          target_branch: ${{ github.ref_name }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
