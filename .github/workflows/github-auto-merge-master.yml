@@ -1,0 +1,17 @@
+name: GitHub Actions - Merge to master
+run-name: ${{ github.actor }} is running this action
+on:
+  push:
+    branches:
+      - "*"
+jobs:
+  Auto-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Merge staging -> ${{ github.ref_name }}
+        uses: CRaez-Dev/RN-Classes@master
+        with:
+          type: now
+          target_branch: ${{ github.ref_name }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
