@@ -10,7 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@master
       - name: Merge staging -> ${{ github.ref_name }}
-        uses: CRaez-Dev/RN-Classes@master
+        uses: craez-dev/rn-classes@master
         with:
           type: now
           target_branch: ${{ github.ref_name }}
