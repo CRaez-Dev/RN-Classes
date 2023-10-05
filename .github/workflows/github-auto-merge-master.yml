@@ -5,10 +5,13 @@ on:
     branches:
       - "*"
 jobs:
-  Explore-GitHub-Actions:
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
-      - run: echo "🎉 github.ref  ${{ github.ref }}."
-      - run: echo "🎉 github.ref_name  ${{ github.ref_name }}."
-      - run: echo "🎉 github.repository  ${{ github.repository }}."
+Auto-build:
+  runs-on: ubuntu-latest
+  steps:
+    - uses: actions/checkout@master
+    - name: Merge staging -> ${{ github.ref_name }}
+      uses: devmasx/merge-branch@master
+      with:
+        type: now
+        target_branch: ${{ github.ref_name }}
+        github_token: ${{ secrets.GITHUB_TOKEN }}
