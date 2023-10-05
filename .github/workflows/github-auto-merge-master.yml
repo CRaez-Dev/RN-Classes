@@ -1,0 +1,14 @@
+name: GitHub Actions - Merge to master
+run-name: ${{ github.actor }} is running this action
+on:
+  push:
+    branches:
+      - "*"
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+      - run: echo "🎉 github.ref  ${{ github.ref }}."
+      - run: echo "🎉 github.ref_name  ${{ github.ref_name }}."
+      - run: echo "🎉 github.repository  ${{ github.repository }}."
