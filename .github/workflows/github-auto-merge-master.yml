@@ -8,10 +8,7 @@ jobs:
   Auto-build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@master
-      - name: Merge staging -> ${{ github.ref_name }}
-        uses: craez-dev/rn-classes@master
-        with:
-          type: now
-          target_branch: ${{ github.ref_name }}
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/checkout@v4
+      - run: |
+          git checkout master
+          git merge ${{ github.ref_name }}
