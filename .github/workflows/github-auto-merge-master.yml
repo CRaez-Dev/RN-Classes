@@ -1,0 +1,15 @@
+name: GitHub Actions - Merge to master
+run-name: ${{ github.actor }} is running this action
+on:
+  push:
+    branches:
+      - "*"
+jobs:
+  Auto-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          repository: ${{ github.repository }}
+          ref: ${{ github.ref_name }}
+          token: ${{ github.token }}
