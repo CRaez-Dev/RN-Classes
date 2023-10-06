@@ -10,6 +10,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: |
-          git checkout master
+          git checkout origin/master
           git pull
           git merge ${{ github.ref_name }}
