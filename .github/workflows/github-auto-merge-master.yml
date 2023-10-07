@@ -10,7 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@master
       - name: Merge development -> staging
-        uses: ${{ github.action_repository }}@master
+        uses: ${{ github.repository }}
         with:
           type: now
           from_branch: ${{ github.ref_name }}
