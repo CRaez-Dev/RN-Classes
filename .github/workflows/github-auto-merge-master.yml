@@ -3,13 +3,16 @@ run-name: ${{ github.actor }} is running this action
 on:
   push:
     branches:
-      - "*"
+      - "RN-*"
 jobs:
   Auto-build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@master
+      - name: Merge development -> staging
+        uses: ${{ github.action_repository }}@master
         with:
-          repository: ${{ github.repository }}
-          ref: ${{ github.ref_name }}
-          token: ${{ github.token }}
+          type: now
+          from_branch: ${{ github.ref_name }}
+          target_branch: master
+          github_token: ${{ secrets.GITHUB_TOKEN }}
